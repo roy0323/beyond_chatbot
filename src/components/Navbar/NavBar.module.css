@@ -1,14 +1,15 @@
 .navbar {
-	padding: 0 20px;
-	background: #ffffff;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: rgb(184, 230, 251);
 	box-shadow: 0 0 10px 1px #0003;
 	border-bottom: 1px solid #0003;
-	height: 65px;
+	--navbar-height: 65px;
 }
 .navbar.logged_in {
 	/* 100vw - width of small left drawer, also see LeftDrawer in Routes */
-	width: calc(100vw - 64px);
-	left: 64px;
+	width: (100vw - 62px);
+	left: 62px;
 }
 .displayNone {
 	display: none;

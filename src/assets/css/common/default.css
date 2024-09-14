@@ -38,12 +38,12 @@ body {
 	--white: #fff;
 	--black: #1d1d1d;
 
-	--primary: #2872fa;
+	--primary: #32ADE6;
 	--primary-light: #e3f2ff;
 	--primary-dark: #333bc7;
 
 	--secondary: #98004c;
-	--secondary-light: #ffe3eb;
+	--secondary-light: #fcecf1;
 	--secondary-main: #fa2871;
 
 	--color4: #ff0000;
@@ -66,6 +66,12 @@ body {
 	--text-primary-strong: #111b21;
 	--chat-bg: #eaeef3;
 	--rich-text-panel-background: #f0f2f5;
+	--btnpink: #FF365C;
+	--btnpink-light: #ff466854;
+	--btnblue: #32ADE6;
+	--btnblue-lil: #32ade670;
+	--btnblue-light: #32ade62d;
+	--bgbg: #aee5ff;
 }
 
 .swal-overlay {

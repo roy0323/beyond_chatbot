@@ -22,7 +22,7 @@
 	max-height: var(--maxHeight);
 }
 
-/* .read-more-less:is(.active)::after {
+ .read-more-less:is(.active)::after {
 	content: "";
 	position: absolute;
 	bottom: 0;
@@ -32,7 +32,7 @@
 	margin: 0;
 	padding: 45px 0;
 	background-image: linear-gradient(to bottom, transparent, white);
-} */
+} 
 
 .read-more-less img {
 	max-width: 100%;

@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: "16px",
 		width: (props) => props.width,
 		padding: "5px",
+		backgroundColor:"#32ADE6"
 	},
 	dialogTitle: {
 		display: "flex",

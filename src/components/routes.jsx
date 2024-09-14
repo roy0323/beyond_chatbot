@@ -20,7 +20,7 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import SettingsIcon from "@mui/icons-material/Settings";
-// import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
+import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import ContactPhoneIcon from "@mui/icons-material/ContactPhone";
 import NewLoader from "./common/NewLoader";
@@ -169,14 +169,14 @@ function AppRoutes() {
 					"Customize the look & feel of the chatbot: colors, personality, chatbot name, logo, business actions, and much more!",
 				isActive: !!matchPath(history.location.pathname, "/:org/config"),
 			},
-			// {
-			// 	title: "Logout",
-			// 	Icon: ExitToAppIcon,
-			// 	onClick: "",
-			// 	tourHeading: "Logout",
-			// 	explanation: "Log out securely and end your current session.",
-			// 	isActive: false,
-			// },
+			{
+				title: "Logout",
+				Icon: ExitToAppIcon,
+				onClick: "",
+				tourHeading: "Logout",
+				explanation: "Log out securely and end your current session.",
+				isActive: false,
+			},
 		],
 		[
 			history,
@@ -304,7 +304,8 @@ function AppRoutes() {
 							<Route exact path="/forgot-password" component={ForgotPassword} />
 							{access_token && (
 								<>
-									<LeftDrawer {...{ isOpened, toggleLeftNav, navOptions }} />
+									<LeftDrawer
+									 {...{ isOpened, toggleLeftNav, navOptions }} />
 									<Suspense fallback={<></>}>
 										{showStartTutorial ? (
 											<ReactJoyride

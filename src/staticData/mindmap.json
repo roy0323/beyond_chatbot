@@ -6,23 +6,23 @@
 		"data": {
 			"current_page": 1,
 			"data": [
-        {
-          "metadata": {
-            "active": true,
-            "bucket_id": 585,
-            "created_at": 1722643200,
-            "created_by": "3871",
-            "host_url": "beyondchats",
-            "id": 54,
-            "read_more_label": "",
-            "read_more_link": "",
-            "source_type": "TEXT",
-            "source_url": "",
-            "text": "Do you work on whatsapp?\r\nYes, we do offer our services on WhatsApp!",
-            "tokens": 16
-          },
-          "vector_id": "54"
-        },
+				{
+					"metadata": {
+						"active": true,
+						"bucket_id": 585,
+						"created_at": 1722643200,
+						"created_by": "3871",
+						"host_url": "beyondchats",
+						"id": 54,
+						"read_more_label": "",
+						"read_more_link": "",
+						"source_type": "TEXT",
+						"source_url": "",
+						"text": "Do you work on whatsapp?\r\nYes, we do offer our services on WhatsApp!",
+						"tokens": 16
+					},
+					"vector_id": "54"
+				},
 				{
 					"metadata": {
 						"active": true,

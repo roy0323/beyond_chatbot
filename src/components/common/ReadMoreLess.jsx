@@ -37,6 +37,7 @@ const ReadMoreLess = ({ children, height = 100 }) => {
 						</Box>
 					</Collapse>
 					<Button
+						color="info"
 						variant="text"
 						onClick={handleToggle}
 						endIcon={isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}

@@ -207,7 +207,7 @@ const AddDataDialog = ({ openAddDialog, setOpenAddDialog, setData }) => {
 		<MuiDialog
 			open={openAddDialog}
 			onClose={handleClose}
-			title="Add Data"
+			title="Add"
 			onSubmit={handleSubmit(onSubmit)}
 			submitDisabled={isFile ? !selectedFiles.length : false}
 			submitButtonText="Save"

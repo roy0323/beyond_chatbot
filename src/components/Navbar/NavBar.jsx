@@ -1,5 +1,6 @@
 // import ClickAwayListener from "@mui/material/ClickAwayListener";
 import makeStyles from "@mui/styles/makeStyles";
+import { styled } from '@mui/material/styles';
 import React, { useMemo } from "react";
 import { withRouter, useHistory, matchPath } from "react-router-dom";
 // import "../../assets/css/User/Navbar/dashboardNavBar.css";
@@ -25,6 +26,7 @@ import {
 	Tooltip,
 	Typography,
 } from "@mui/material";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MenuIcon from "@mui/icons-material/Menu";
 import InfoIcon from "@mui/icons-material/Info";
 import { useUserContext } from "context/UserContext";
@@ -45,14 +47,15 @@ const useStyles2 = makeStyles((theme) => ({
 		alignItems: "center",
 		padding: "0.5rem 1rem",
 		cursor: "pointer",
-		color: "var(--primary)",
+		color: "var(--btnpink)",
 		borderRadius: 8,
+		
 		"&:hover": {
 			backgroundColor: "#f6f2f2",
 		},
 	},
 	orgName: {
-		color: "var(--color5)",
+		color: "var(--btnpink)"
 	},
 	radio: {
 		color: "var(--primary)",
@@ -80,10 +83,11 @@ const useStyles2 = makeStyles((theme) => ({
 	orgBtn: {
 		border: "none",
 		outline: "none",
-		color: "var(--primary)",
+		color: "var(--btnpink)",
 		borderRadius: "0.5rem",
+		border: `1px solid var(--btnpink)`,
 		"&:hover": {
-			backgroundColor: "transparent",
+			backgroundColor: "var(--btnpink-light)",
 		},
 	},
 	orgSelector: {
@@ -99,9 +103,10 @@ const useStyles2 = makeStyles((theme) => ({
 		alignItems: "center",
 		color: "black",
 		cursor: "pointer",
-		borderRadius: 8,
+		borderRadius: 1,
+		background:"var(--btnblue-light)",
 		"&:hover": {
-			backgroundColor: "#f6f2f2",
+			backgroundColor: "var(--btnblue-lil)",
 		},
 	},
 	tutorialStart: {
@@ -131,21 +136,6 @@ const NavBar = (props) => {
 				?.name,
 		[host_url, orgs]
 	);
-
-	// const showDesktopProfile = () => {
-	// 	setIsDesktopBarOpened(true);
-	// };
-
-	// const hideDesktopProfile = () => {
-	// 	setIsDesktopBarOpened(false);
-	// };
-	// const showOrgSelector = () => {
-	// 	setIsOrgSelectorOpened(true);
-	// };
-
-	// const hideOrgSelector = () => {
-	// 	setIsOrgSelectorOpened(false);
-	// };
 
 	const handleOpenUserMenu = (event) => {
 		setAnchorElUser(event.currentTarget);
@@ -182,14 +172,31 @@ const NavBar = (props) => {
 					disableGutters
 					sx={{ display: "flex", justifyContent: "space-between" }}
 				>
-					{access_token && isMobile ? (
-						<Box>
-							<IconButton onClick={props.toggleLeftNav}>
-								<MenuIcon />
-							</IconButton>
-						</Box>
-					) : null}
-					<Box>
+					<Box sx={{
+						display: 'flex', 
+						alignItems: 'center', 
+						gap: 1, 
+					}}>
+						{access_token && isMobile ? (
+						
+						<IconButton onClick={props.toggleLeftNav} sx={{ p: 0 }}>
+											<Avatar
+												alt={name}
+												src={`https://api.dicebear.com/5.x/micah/svg?seed=${email}`}
+												sx={{ boxShadow: "0px 0px 0px 0px var(--btnpink-light)" }}
+											/>
+						</IconButton>
+					
+				) : null}
+					{/* {access_token && !isMobile ? (
+						<IconButton onClick={props.toggleLeftNav}>
+									<Avatar
+										alt={name}
+										src={`https://integration.beyondchats.com/favicon.png`}
+										
+									/>
+						</IconButton>
+					) : null} */}
 						<Typography
 							variant="h3"
 							noWrap
@@ -207,7 +214,7 @@ const NavBar = (props) => {
 										sx={{
 											display: {
 												xs: "inline-block",
-												md: "none",
+												md: "block",
 												fontSize: "16px",
 											},
 										}}
@@ -223,12 +230,13 @@ const NavBar = (props) => {
 							sx={{
 								color: "black",
 								fontWeight: 400,
-								display: { xs: "none", md: "block", maxWidth: "500px" },
+								display: { xs: "none", md: "none", maxWidth: "500px" },
 							}}
 						>
 							{activeOption?.explanation}
 						</Typography>
 					</Box>
+					
 
 					<Box sx={{ flexGrow: 0, gap: 2, display: "flex" }}>
 						{access_token ? (
@@ -248,14 +256,29 @@ const NavBar = (props) => {
 								) : null}
 
 								{!isMobile ? (
+									<Tooltip title="Tutorial">
 									<Button
+									sx={{
+										border: "none",
+										outline: "none",
+										color: "var(--btnpink)",
+										borderRadius: "0.5rem",
+										border: `1px solid var(--btnpink)`,
+										"&:hover": {
+											backgroundColor: "var(--btnpink-light)",
+											border: `1px solid var(--btnpink)`
+										},
+									}}
 										variant="outlined"
 										onClick={() => props.setShowStartTutorial(true)}
 									>
-										<Typography variant="h6">Guided Tour</Typography>
-									</Button>
+										<Typography 
+										variant="h6">Guided Tour
+										</Typography>
+									</Button></Tooltip>
 								) : null}
 								{/* ORG Selector */}
+								{!isMobile ? (
 								<Tooltip title="View Orgs">
 									<Button
 										variant="text"
@@ -281,6 +304,17 @@ const NavBar = (props) => {
 										/> */}
 									</Button>
 								</Tooltip>
+								) : (
+									<Tooltip title="More Options">
+										<IconButton
+											color="primary"
+											onClick={handleOpenOrgMenu}
+										>
+											<MoreVertIcon />
+										</IconButton>
+									</Tooltip>
+								)}
+								
 								{!isMobile ? (
 									<>
 										<Menu
@@ -318,7 +352,7 @@ const NavBar = (props) => {
 												<Avatar
 													alt={name}
 													src={`https://api.dicebear.com/5.x/micah/svg?seed=${email}`}
-													sx={{ boxShadow: "0px 0px 0px 2px var(--primary)" }}
+													sx={{ boxShadow: "0px 0px 0px 0px var(--btnpink)" }}
 												/>
 											</IconButton>
 										</Tooltip>
